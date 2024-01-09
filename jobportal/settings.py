@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2ior@)bexk(0ync_b2!@ehpt$=tz=w0p40m!*)o1(kl3l#a&sd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','.railway.app']
 
@@ -129,9 +129,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'staticfiles_build'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
+STATIC_ROOT = BASE_DIR/'static'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 CSRF_COOKIE_SECURE=False
 
 
